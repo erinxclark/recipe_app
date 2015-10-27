@@ -1,3 +1,5 @@
 class Tag < ActiveRecord::Base
-  belongs_to :Recipe
+  validates :name, :presence => true
+
+  belongs_to :recipe
 end

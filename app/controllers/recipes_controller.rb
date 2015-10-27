@@ -14,6 +14,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes/new
   def new
+    @tags = Tag.all
     @recipe = Recipe.new
   end
 
@@ -37,6 +38,7 @@ class RecipesController < ApplicationController
     end
   end
 
+
   # PATCH/PUT /recipes/1
   # PATCH/PUT /recipes/1.json
   def update
@@ -49,7 +51,7 @@ class RecipesController < ApplicationController
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
       end
     end
-  end
+end
 
   # DELETE /recipes/1
   # DELETE /recipes/1.json
@@ -59,6 +61,17 @@ class RecipesController < ApplicationController
       format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def add_tag
+    @recipe = Recipe.find(params[:id])
+    newTag = Tag.new(params[:tag])
+    if newTag.valid?
+      newTag.save
+      @recipe.tags << newTag
+      @recipe.save
+    render 'show.html.erb'
+  end
   end
 
   private
@@ -71,4 +84,4 @@ class RecipesController < ApplicationController
     def recipe_params
       params.require(:recipe).permit(:title, :author, :ingredients, :instructions)
     end
-end
+  end
