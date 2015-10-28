@@ -21,6 +21,14 @@ class TagsController < ApplicationController
   def edit
   end
 
+  #search
+  def search
+    if !params[:search_string].nil?
+    search_string = params[:search_string].strip
+    @tags = Tag.where(:name => search_string)
+  end
+end
+
   # POST /tags
   # POST /tags.json
   def create

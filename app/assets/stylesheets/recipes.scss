@@ -4,13 +4,13 @@
 
 .main {
 background-color: rgb(0, 204, 163);
-height: 60%;
+height: 90%;
 box-shadow: 15px 15px 50px rgba(45, 45, 45, 1);
 color: white;
 }
 
-.spacer {
-  height: 10%;
+div.spacer{
+  height: 50% ;
 }
 
 h2 {
@@ -35,4 +35,8 @@ h1 {
 
 span.logo {
   font-family: 'Lobster', cursive;
+}
+
+input {
+  color: black;
 }

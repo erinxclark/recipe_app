@@ -1,8 +1,9 @@
 .main {
 background-color: rgb(0, 204, 163);
-height: 60%;
+height: 80%;
 box-shadow: 15px 15px 50px rgba(45, 45, 45, 1);
 color: white;
+padding-bottom: 25px;
 }
 
 div.spacer{
@@ -33,6 +34,18 @@ span.logo {
   font-family: 'Lobster', cursive;
 }
 
+input {
+  color: black;
+}
+
 .select:hover {
   background-color: rgba(0, 204, 163, .1);
+}
+
+td {
+  width: 100px;
+  font-size: 30px
+}
+
+table {
 }

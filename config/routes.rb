@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+  match '/tags/search', {:via => :get, :to => 'tags#search'}
   resources :tags
-  resources :recipes
-  
+
   match '/', :via => [:get], :to => redirect('/home.html')
   match('/recipes/:id/add_tag', {:via => :post, :to => 'recipes#add_tag'})
+  resources :recipes
   # match '(when you create recipe)', :via => [:get], :to => redirect('/tag')
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
